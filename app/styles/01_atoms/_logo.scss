@@ -1,0 +1,12 @@
+.logo {
+  text-indent: -999em;
+  color: transparent;
+}
+
+.logo--discourse-analytics {
+  $image: 'ai-logo.png';
+  background: image-url($image) top left no-repeat;
+  width: image-width($image);
+  height: image-height($image);
+  margin: 0 10px;
+}
