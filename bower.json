@@ -10,10 +10,14 @@
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
     "angular-animate": "1.2.15",
-    "semantic-ui": "~0.15.5"
+    "semantic-ui": "~0.15.5",
+    "angularjs-nvd3-directives": "~0.0.7"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",
     "angular-scenario": "1.2.15"
+  },
+  "resolutions": {
+    "d3": "~3.4.1"
   }
 }

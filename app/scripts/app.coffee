@@ -6,7 +6,8 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'ngAnimate'
+    'ngAnimate',
+    'nvd3ChartDirectives'
   ])
   .config ($routeProvider) ->
     $routeProvider
@@ -32,6 +33,5 @@ angular
     '$rootScope',
     '$document',
     ($rootScope, $document) ->
-      $rootScope.$on '$rootChangeSuccess', (event, current, previous) ->
-        $document.find('.ui.sidebar').sidebar
+
   ]
