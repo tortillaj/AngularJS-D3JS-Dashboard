@@ -1,55 +1,16 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .directive 'sidebar', ->
-    controller: 'SidebarCtrl',
-    restrict: 'EA',
-    scope: {
-      isOpen: '=?',
-      onToggle: '&'
-    },
-    link: (scope, element, attrs, sidebarCtrl) ->
-      sidebarCtrl.init element
-      return
 
-  .directive 'sidebarToggle', ->
-    controller: 'SidebarCtrl',
-    restrict: 'EA',
-    link: (scope, element, attrs, sidebarCtrl) ->
-      return if not sidebarCtrl
-
-      sidebarCtrl.toggleElement = element
-
-      toggleSidebar = (event) ->
-        event.preventDefault
-        if not element.hasClass('disabled') and not attrs.disabled
-          scope.$apply ->
-            sidebarCtrl.toggle !sidebarCtrl.isOpen
-            return
-        return
-
-      element.bind 'click', toggleSidebar
-      element.attr 'aria-expanded': false
-
-      scope.$watch sidebarCtrl.isOpen, (isOpen) ->
-        element.attr 'aria-expanded', !!isOpen
-        return
-
-      scope.$on '$destroy', ->
-        element.unbind 'click', toggleSidebar
-        return
-      return
-
-  .constant 'sidebarConfig',
+.constant 'sidebarConfig',
     openClass: 'open-sidebar'
 
-  .service 'sidebarService', ($document) ->
+.service 'sidebarService', ($document) ->
     self = @
     openScope = null
 
     @open = (sidebarScope) ->
       unless openScope
-        console.dir('@open sidebarService')
         $document.bind 'click', closeSidebar
         $document.bind 'keydown', escapeBind
         openScope.isOpen = false if openScope and openScope isnt sidebarScope
@@ -58,14 +19,13 @@ angular.module('votifiAngularApp')
 
     @close = (sidebarScope) ->
       if openScope is sidebarScope
-        console.dir('@close sidebarService')
         openScope = null
         $document.unbind 'click', closeSidebar
         $document.unbind 'keydown', escapeBind
         return
 
     closeSidebar = (event) ->
-      if event and event.isDefaultPrevented
+      if event and event.isDefaultPrevented()
         return
       openScope.$apply ->
         openScope.isOpen = false
@@ -75,11 +35,11 @@ angular.module('votifiAngularApp')
     escapeBind = (event) ->
       if event.which is 27
         openScope.focusToggleElement
-        closeSidebar
+        self.closeSidebar
       return
     return
 
-  .controller 'SidebarCtrl', ($scope, $attrs, sidebarService, sidebarConfig, $animate, $parse) ->
+.controller 'SidebarCtrl', ($scope, $attrs, sidebarService, sidebarConfig, $animate, $parse) ->
     self = @
     scope = $scope.$new()
     setIsOpen = angular.noop
@@ -87,7 +47,6 @@ angular.module('votifiAngularApp')
     openClass = sidebarConfig.openClass
 
     @init = (element) ->
-      console.dir($attrs)
       self.$element = element
       if $attrs.isOpen
         getIsOpen = $parse($attrs.isOpen)
@@ -98,25 +57,28 @@ angular.module('votifiAngularApp')
       return
 
     @toggle = () ->
-      console.dir('toggle called')
       $scope.isOpen = !$scope.isOpen
       self.$element.sidebar 'toggle'
       return
 
+    # Allow other directives to know if the sidebar is open
     @isOpen = ->
       $scope.isOpen
-      return
+      # return
+
+    scope.focusToggleElement = ->
+      self.toggleElement[0].focus if self.toggleElement
 
     scope.$watch "isOpen", (isOpen, wasOpen) ->
-      #$animate[(if isOpen then "addClass" else "removeClass")] self.$element, openClass
       if isOpen
-        console.log('sidebar opened')
+        $animate.addClass self.$element, openClass
         scope.focusToggleElement()
         sidebarService.open scope
       else
-        console.log('sidebar closed')
+        $animate.removeClass self.$element, openClass
         sidebarService.close scope
       setIsOpen $scope, isOpen
+      self.$element.attr 'aria-expanded', !!isOpen
       if angular.isDefined(wasOpen) and isOpen isnt wasOpen
         toggleInvoker $scope,
           open: !!isOpen
@@ -132,3 +94,36 @@ angular.module('votifiAngularApp')
       return
 
     return
+
+.directive 'sidebar', ->
+    controller: 'SidebarCtrl',
+    restrict: 'A',
+    scope:
+      isOpen: '=?',
+      onToggle: '&'
+    link: (scope, element, attrs, sidebarCtrl) ->
+      sidebarCtrl.init element.find('.ui.sidebar')
+      return
+
+.directive 'sidebarToggle', ->
+    require: '^sidebar',
+    restrict: 'A',
+    link: (scope, element, attrs, sidebarCtrl) ->
+      return if not sidebarCtrl
+
+      sidebarCtrl.toggleElement = element
+
+      toggleSidebar = (event) ->
+        event.preventDefault
+        if not element.hasClass('disabled') and not attrs.disabled
+          scope.$apply ->
+            sidebarCtrl.toggle !sidebarCtrl.isOpen
+            return
+        return
+
+      element.bind 'click', toggleSidebar
+
+      scope.$on '$destroy', ->
+        element.unbind 'click', toggleSidebar
+        return
+      return

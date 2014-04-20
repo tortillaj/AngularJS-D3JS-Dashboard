@@ -2,8 +2,10 @@
 
 angular.module('votifiAngularApp')
   .controller 'BodyCtrl', ($scope, $document) ->
+    $scope.sidebar =
+      isOpen: false
+
     $scope.toggleSidebar = ->
-      $document.find('.ui.sidebar').sidebar 'toggle'
-      return
+      $scope.sidebar.isOpen = !$scope.sidebar.isOpen
 
     return

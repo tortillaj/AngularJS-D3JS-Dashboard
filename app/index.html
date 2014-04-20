@@ -25,8 +25,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <aside class="ui large vertical inverted labeled icon sidebar menu" role="navigation" ng-include src="'views/sidebar.html'"></aside>
-    <header class="ui fixed transparent main menu" role="branding" ng-include src="'views/header.html'"></header>
+    <header class="ui" role="branding" ng-include src="'views/header.html'"></header>
     <main class="container" ng-view=""></main>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -66,6 +65,7 @@
         <script src="scripts/controllers/nodes.js"></script>
         <script src="scripts/controllers/questions.js"></script>
         <script src="scripts/controllers/export.js"></script>
-        <!-- endbuild -->
+        <script src="scripts/directives/sidebar.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

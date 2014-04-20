@@ -1,5 +1,19 @@
-<nav class="ui fixed transparent main menu">
-    <div class="ui black huge launch left item" ng-click="toggleSidebar()">
+
+<nav class="ui transparent main menu" sidebar>
+    <aside class="ui large vertical inverted labeled icon sidebar menu">
+        <div class="item">
+            <i class="inverted circular teal awesome download cloud icon"></i> <b>TheGrio</b>
+        </div>
+        <div class="item">
+            <nav class="menu">
+                <a href="#" class="ui header item">ADMIN</a>
+                <a href="#" class="item">Configure Facebook Apps</a>
+                <a href="#" class="item">Settings</a>
+                <a href="#" class="item">Logout</a>
+            </nav>
+        </div>
+    </aside>
+    <div class="ui black huge launch left item" sidebar-toggle>
         <i class="icon list layout big"></i>
     </div>
     <div class="ui title item">
