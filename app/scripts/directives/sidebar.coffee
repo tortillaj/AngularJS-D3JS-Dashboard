@@ -48,6 +48,7 @@ angular.module('votifiAngularApp')
 
     @init = (element) ->
       self.$element = element
+      self.$element.sidebar()
       if $attrs.isOpen
         getIsOpen = $parse($attrs.isOpen)
         self.setIsOpen = getIsOpen.assign
@@ -58,7 +59,7 @@ angular.module('votifiAngularApp')
 
     @toggle = () ->
       $scope.isOpen = !$scope.isOpen
-      self.$element.sidebar 'toggle'
+      # self.$element.sidebar 'toggle'
       return
 
     # Allow other directives to know if the sidebar is open
@@ -69,7 +70,7 @@ angular.module('votifiAngularApp')
     scope.focusToggleElement = ->
       self.toggleElement[0].focus if self.toggleElement
 
-    scope.$watch "isOpen", (isOpen, wasOpen) ->
+    scope.$watch 'isOpen', (isOpen, wasOpen) ->
       if isOpen
         $animate.addClass self.$element, openClass
         scope.focusToggleElement()
@@ -85,11 +86,11 @@ angular.module('votifiAngularApp')
 
       return
 
-    $scope.$on "$locationChangeSuccess", ->
+    $scope.$on '$locationChangeSuccess', ->
       scope.isOpen = false
       return
 
-    $scope.$on "$destroy", ->
+    $scope.$on '$destroy', ->
       scope.$destroy()
       return
 
@@ -97,7 +98,7 @@ angular.module('votifiAngularApp')
 
 .directive 'sidebar', ->
     controller: 'SidebarCtrl',
-    restrict: 'A',
+    restrict: 'EA',
     scope:
       isOpen: '=?',
       onToggle: '&'
@@ -107,7 +108,7 @@ angular.module('votifiAngularApp')
 
 .directive 'sidebarToggle', ->
     require: '^sidebar',
-    restrict: 'A',
+    restrict: 'EA',
     link: (scope, element, attrs, sidebarCtrl) ->
       return if not sidebarCtrl
 
