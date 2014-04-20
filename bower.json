@@ -10,11 +10,12 @@
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
     "angular-animate": "1.2.15",
-    "semantic-ui": "~0.15.5",
     "angularjs-nvd3-directives": "~0.0.7",
     "angular-bootstrap": "~0.10.0",
     "bootstrap-sass-official": "~3.1.1+1",
-    "pushy": "~0.9.1"
+    "pushy": "~0.9.1",
+    "modernizr": "~2.7.2",
+    "jquery": "~2.1.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

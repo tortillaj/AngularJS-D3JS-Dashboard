@@ -16,8 +16,10 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/vendor.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <script src="scripts/modernizr.js"></script>
   </head>
   <body ng-app="votifiAngularApp" ng-controller="BodyCtrl">
     <!--[if lt IE 7]>
@@ -25,10 +27,31 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container-fluid">
+    <aside class="pushy pushy-left" role="navigation">
+        <div class="item">
+            <i class="inverted circular teal awesome download cloud icon"></i> <b>TheGrio</b>
+        </div>
+        <div class="item">
+            <nav class="menu">
+                <a href="#" class="ui header item">ADMIN</a>
+                <a href="#" class="item">Configure Facebook Apps</a>
+                <a href="#" class="item">Settings</a>
+                <a href="#" class="item">Logout</a>
+            </nav>
+        </div>
+    </aside>
+    <div class="container-fluid" id="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <i class="menu-btn glyphicon glyphicon-align-justify"></i>
+                <h1 class="logo logo--discourse-analytics">Discourse Analytics</h1>
+            </div>
+        </div>
         <header class="row" role="branding" ng-include src="'views/header.html'"></header>
         <main class="row" ng-view=""></main>
     </div>
+
+    <div class="site-overlay"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -59,24 +82,11 @@
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="bower_components/pushy/js/pushy.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="bower_components/semantic-ui/build/packaged/javascript/semantic.js"></script>
+        <script src="bower_components/pushy/js/pushy.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/body.js"></script>

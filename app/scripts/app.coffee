@@ -7,7 +7,8 @@ angular
     'ngSanitize',
     'ngRoute',
     'ngAnimate',
-    'nvd3ChartDirectives'
+    'nvd3ChartDirectives',
+    'ui.bootstrap'
   ])
   .config ($routeProvider) ->
     $routeProvider

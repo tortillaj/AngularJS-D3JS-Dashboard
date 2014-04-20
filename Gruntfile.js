@@ -342,10 +342,26 @@ module.exports = function (grunt) {
       }
     },
 
+    modernizr: {
+      server: {
+        devFile: '<%= yeoman.app %>/bower_components/pushy/js/vendor/modernizr-2.6.2.min.js',
+        outputFile: '.tmp/scripts/modernizr.js',
+        tests: ['respond'],
+        uglify: false
+      },
+      dist: {
+        devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
+        outputFile: '<%= yeoman.dist %>/scripts/modernizr.js',
+        tests: ['respond'],
+        uglify: true
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
         'coffee:dist',
+        'modernizr:server',
         'compass:server'
       ],
       test: [
@@ -429,6 +445,7 @@ module.exports = function (grunt) {
     'bowerInstall',
     'useminPrepare',
     'concurrent:dist',
+    'modernizr:dist',
     'autoprefixer',
     'concat',
     'ngmin',
