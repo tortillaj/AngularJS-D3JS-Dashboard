@@ -7,4 +7,5 @@ angular.module('votifiAngularApp')
     # to access it that way rather than using the global object
     @$get = ->
       Modernizr || {}
+    return
   ]

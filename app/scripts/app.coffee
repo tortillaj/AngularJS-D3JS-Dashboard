@@ -10,6 +10,9 @@ angular
     'nvd3ChartDirectives',
     'ui.bootstrap'
   ])
+  .constant 'Globals',
+    apiPrefix: '/api'
+
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
