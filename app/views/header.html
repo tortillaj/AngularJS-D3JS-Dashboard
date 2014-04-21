@@ -10,11 +10,11 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Overview</a></li>
-                    <li><a href="/questions">Questions</a></li>
-                    <li><a href="/nodes">Nodes</a></li>
-                    <li><a href="/clusters">Clusters</a></li>
-                    <li><a href="/export">Export</a></li>
+                    <li ng-class="{ active: activePage('/')}"><a href="/">Overview</a></li>
+                    <li ng-class="{ active: activePage('/questions')}"><a href="/#/questions">Questions</a></li>
+                    <li ng-class="{ active: activePage('/nodes')}"><a href="/#/nodes">Nodes</a></li>
+                    <li ng-class="{ active: activePage('/clusters')}"><a href="/#/clusters">Clusters</a></li>
+                    <li ng-class="{ active: activePage('/export')}"><a href="/#/export">Export</a></li>
                 </ul>
             </div>
         </div>
