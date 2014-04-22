@@ -8,7 +8,7 @@ angular.module('votifiAngularApp')
     # Questions
     #
     ##
-    $scope.questionData = Question.getQuestions()
+    Question.getQuestions().then((data) -> $scope.questionData = data)
 
     $scope.formatDateAsDayName = ->
       (d) ->

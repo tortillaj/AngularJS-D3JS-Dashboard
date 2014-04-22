@@ -8,7 +8,8 @@ angular
     'ngRoute',
     'ngAnimate',
     'nvd3ChartDirectives',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'jmdobry.angular-cache'
   ])
   .constant 'Globals',
     apiPrefix: '/api'
@@ -37,6 +38,16 @@ angular
   .run [
     '$rootScope',
     '$document',
-    ($rootScope, $document) ->
+    '$http',
+    '$angularCacheFactory',
+    ($rootScope, $document, $http, $angularCacheFactory) ->
 
+      $angularCacheFactory 'appCache',
+        maxAge: 1000 * 60 * 60 * 24
+        cacheFlushInterval: 1000 * 60 * 60 * 24
+        storageMode: 'localStorage'
+        verifyIntegrity: true
+        deleteOnExpire: 'aggressive'
+
+      $http.defaults.cache = $angularCacheFactory.get('cache');
   ]
