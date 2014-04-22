@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-.factory 'Question', ['$resource', '$http', ($resource, $http) ->
+.factory 'Question', ['$resource', '$http', 'Globals', ($resource, $http, Globals) ->
     getQuestions: () ->
       [
         name: "Project 1"

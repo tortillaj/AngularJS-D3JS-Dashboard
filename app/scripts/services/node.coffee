@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-.factory 'Node', ['$resource', '$http', ($resource, $http) ->
+.factory 'Node', ['$resource', '$http', 'Globals', ($resource, $http, Globals) ->
     getNodes: () ->
       [
         trending:

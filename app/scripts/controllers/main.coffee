@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .controller 'MainCtrl', ['Question', 'Node', '$scope', '$timeout', (Question, Node, $scope, $interval) ->
+  .controller 'MainCtrl', ['Question', 'Node', 'Cluster', '$scope', '$timeout', (Question, Node, Cluster, $scope, $interval) ->
 
     ##
     #
@@ -48,6 +48,14 @@ angular.module('votifiAngularApp')
       (d) ->
         label = d.split '|'
         label[0]
+
+    ##
+    #
+    # Clusters
+    #
+    ##
+    $scope.clusterData = Cluster.getClusters()
+    console.dir $scope.clusterData
 
     return
 

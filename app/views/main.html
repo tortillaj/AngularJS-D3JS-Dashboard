@@ -63,6 +63,14 @@
         <section class="col-xs-12 col-lg-6">
             <div class="well">
                 <h2>Clusters Summary <br><small>Overview of user cluster data.</small></h2>
+                <nvd3-pie-chart
+                        data="clusterData"
+                        id="clusterOverviewPieChart"
+                        width="550"
+                        height="350"
+                        showLabels="true">
+                    <svg></svg>
+                </nvd3-pie-chart>
             </div>
         </section>
         <section class="col-xs-12 col-lg-6">
