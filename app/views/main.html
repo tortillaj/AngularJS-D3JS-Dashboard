@@ -45,11 +45,11 @@
                                 tooltipcontent="questionToolTipContent()"
                                 showXAxis="true"
                                 showYAxis="true"
-                                showLegend="true"
                                 width="550"
                                 height="400"
                                 showControls="true"
-                                xAxisTickFormat="formatDateAsDayName()">
+                                xAxisTickFormat="formatDateAsDayName()"
+                                color="colorPalette(data.lastWeek.datas)">
                             <svg></svg>
                         </nvd3-multi-bar-chart>
                     </section>
@@ -63,21 +63,35 @@
         <section class="col-xs-12 col-lg-6">
             <div class="well">
                 <h2>Clusters Summary <br><small>Overview of user cluster data.</small></h2>
-                <nvd3-pie-chart
-                        data="clusterData"
-                        id="clusterOverviewPieChart"
-                        width="550"
-                        height="350"
-                        showLabels="true">
-                    <svg></svg>
-                </nvd3-pie-chart>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-8">
+                        <nvd3-pie-chart
+                                data="clusters"
+                                id="clusterOverviewPieChart"
+                                width="350"
+                                height="350"
+                                x="xFunction()"
+                                y="yFunction()"
+                                tooltips="true"
+                                color="colorPalette(clusters)"
+                                tooltipcontent="clusterToolTipContent()">
+                            <svg></svg>
+                        </nvd3-pie-chart>
+                    </div>
+                    <div class="col-xs-12 col-lg-4">
+                        <div ng-repeat="cluster in clusters">
+                            <h3>{{ cluster.key }}</h3>
+                            <p>{{ cluster.y / clusterData[0].total * 100 | number:1 }}%</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="col-xs-12 col-lg-6">
             <div class="well">
                 <h2>Nodes Summary <br><small>Trending responses from each node.</small></h2>
                 <nvd3-discrete-bar-chart
-                        data="nodeData[0].trending.datas"
+                        data="trendingNodes.trending.datas"
                         id="nodeOverviewBarChart"
                         interactive="true"
                         showXAxis="true"
@@ -86,7 +100,8 @@
                         tooltipcontent="nodeToolTipContent()"
                         xAxisTickFormat="nodeXAxisContent()"
                         width="550"
-                        height="400">
+                        height="400"
+                        color="colorPalette(trendingNodes.trending.datas[0].values)">
                     <svg></svg>
                 </nvd3-discrete-bar-chart>
             </div>
