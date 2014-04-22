@@ -12,6 +12,7 @@ angular
   ])
   .constant 'Globals',
     apiPrefix: '/api'
+    colorBrewer: 'YlOrRd'
 
   .config ($routeProvider) ->
     $routeProvider

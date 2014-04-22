@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .controller 'MainCtrl', ['Question', 'Node', 'Cluster', 'Colorbrewer', '$scope', '$timeout', (Question, Node, Cluster, Colorbrewer, $scope, $interval) ->
+  .controller 'MainCtrl', ['Question', 'Node', 'Cluster', 'Colorbrewer', '$scope', 'Globals', (Question, Node, Cluster, Colorbrewer, $scope, Globals) ->
 
     ##
     #
@@ -49,6 +49,10 @@ angular.module('votifiAngularApp')
         label = d.split '|'
         label[0]
 
+    $scope.nodeValueFormat = ->
+      (d) ->
+        d3.round(d)
+
     ##
     #
     # Clusters
@@ -68,7 +72,7 @@ angular.module('votifiAngularApp')
     $scope.clusterToolTipContent = () ->
       (key, x, y, e, graph) ->
         p =  x / $scope.clusterData[0].total * 100
-        '<p>' + key + ': ' + p.toFixed(1) + '%</p>'
+        '<p>' + key + ': ' + d3.round(p,1) + '%</p>'
 
     ##
     #
@@ -77,8 +81,9 @@ angular.module('votifiAngularApp')
     ##
     $scope.colorPalette = (data) ->
       (d, i) ->
-        palette = (if (data.length < 9) then Colorbrewer.YlGn[data.length] else Colorbrewer.YlGn[9])
-        if data.length < 3 then palette = Colorbrewer.YlGn[3]
+        cb = Colorbrewer[Globals.colorBrewer]
+        palette = (if (data.length < 9) then cb[data.length] else cb[9])
+        if data.length < 3 then palette = cb[3]
         palette[i]
 
 
