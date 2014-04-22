@@ -15,7 +15,7 @@ angular.module('votifiAngularApp')
         lastWeek:
           sumUsers: 320
           sumInteractions: 456
-          datum:
+          datas:
             [
               key: "Users"
               values: [
@@ -53,7 +53,7 @@ angular.module('votifiAngularApp')
         lastWeek:
           sumUsers: 310
           sumInteractions: 356
-          datum:
+          datas:
             [
               key: "Users"
               values: [
