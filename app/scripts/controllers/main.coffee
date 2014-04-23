@@ -75,18 +75,6 @@ angular.module('votifiAngularApp')
         p =  x / $scope.clusterData[0].total * 100
         '<p>' + key + ': ' + d3.round(p,1) + '%</p>'
 
-    ##
-    #
-    # General
-    #
-    ##
-    $scope.colorPalette = (data) ->
-      (d, i) ->
-        cb = Colorbrewer[Globals.colorBrewer]
-        palette = (if (data.length < 9) then cb[data.length] else cb[9])
-        if data.length < 3 then palette = cb[3]
-        palette[i]
-
 
 
     return

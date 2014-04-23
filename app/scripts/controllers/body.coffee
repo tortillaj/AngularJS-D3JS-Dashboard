@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .controller 'BodyCtrl', ($scope, $document, $location) ->
+  .controller 'BodyCtrl', ['$scope', '$document', '$location', 'Colorbrewer', 'Globals', ($scope, $document, $location, Colorbrewer, Globals) ->
     $scope.sidebar =
       isOpen: false
 
@@ -11,4 +11,11 @@ angular.module('votifiAngularApp')
     $scope.activePage = (viewLocation) ->
       viewLocation is $location.path()
 
-    return
+    $scope.colorPalette = (data) ->
+      (d, i) ->
+        cb = Colorbrewer[Globals.colorBrewer]
+        palette = (if (data.length < 9) then cb[data.length] else cb[9])
+        if data.length < 3 then palette = cb[3]
+        palette[i]
+
+  ]

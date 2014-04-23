@@ -1,15 +1,44 @@
 {
-  "trending": {
-    "datas": [{
-      "key": "Trending",
+  "nodes": [
+    {
+      "key": "Budget",
       "values": [
-        ["Budget|How do you feel about the budget?", 34],
-        ["Economy|How do you feel about the economy?", 39],
-        ["Culture|What is good culture?", 24],
-        ["Constitution|Have you read the Constitution?", 44],
-        ["Energy|Should we invest in finding new energy sources?", 31],
-        ["Transportation|How do you travel to work?", 49]
+        ["How do you feel about the Economy?", 34],
+        ["Do you use financial software for your budget?", 31],
+        ["Would you feel comfortable buying a house now?", 21]
       ]
-    }]
+    },
+    {
+      "key": "Economy",
+      "values": [
+        ["How do you feel about the economy?", 39],
+        ["Are you employed?", 20],
+        ["Do you feel like the economy has gotten better?", 32],
+        ["Should banks have more regulation?", 12]
+      ]
+    },
+    {
+      "key": "Constitution",
+      "values": [
+        ["Have you read the Constitution?", 44],
+        ["Should the Constitution change over time?", 32],
+        ["When was the Constitution adopted?", 12]
+      ]
+    }
+  ],
+  "trending": {
+    "datas": [
+      {
+        "key": "Trending",
+        "values": [
+          ["Budget|How do you feel about the budget?", 34],
+          ["Economy|How do you feel about the economy?", 39],
+          ["Culture|What is good culture?", 24],
+          ["Constitution|Have you read the Constitution?", 44],
+          ["Energy|Should we invest in finding new energy sources?", 31],
+          ["Transportation|How do you travel to work?", 49]
+        ]
+      }
+    ]
   }
 }

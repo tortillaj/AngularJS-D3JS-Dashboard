@@ -1,1 +1,30 @@
-<p>This is the nodes view.</p>
+<div class="col-md-12">
+
+    <div class="row" ng-repeat="r in rows">
+        <div class="col-md-6" ng-repeat="node in r">
+            <article class="panel panel-default">
+                <header class="panel-heading">
+                    <h3>{{ node.key }}</h3>
+                </header>
+                <section class="panel-body">
+                    <nvd3-discrete-bar-chart
+                            data="[node]"
+                            id="node-{{ node.key }}"
+                            showXAxis="false"
+                            staggerLabels="true"
+                            showYAxis="false"
+                            tooltips="true"
+                            tooltipcontent="nodeToolTipContent()"
+                            showValues="true"
+                            valueFormat="nodeValueFormat()"
+                            color="colorPalette(node.values.length)"
+                            width="500"
+                            height="400"
+                            margin="{top:10,left:10,right:10,bottom:0}">
+                        <svg></svg>
+                    </nvd3-discrete-bar-chart>
+                </section>
+            </article>
+        </div>
+    </div>
+</div>
