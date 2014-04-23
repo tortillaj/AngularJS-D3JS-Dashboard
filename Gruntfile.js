@@ -370,7 +370,8 @@ module.exports = function (grunt) {
       server: [
         'coffee:dist',
         'modernizr:server',
-        'compass:server'
+        'compass:server',
+        'notify:compass'
       ],
       test: [
         'coffee',
@@ -415,6 +416,15 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
+      }
+    },
+
+    // Notifications
+    notify: {
+      compass: {
+        options: {
+          message: 'Compass task complete'
+        }
       }
     }
   });
