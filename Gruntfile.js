@@ -188,7 +188,7 @@ module.exports = function (grunt) {
         relativeAssets: false,
         assetCacheBuster: false,
         raw: 'Sass::Script::Number.precision = 10\n',
-        require: ['breakpoint', 'compass-normalize']
+        require: ['compass-normalize']
       },
       dist: {
         options: {
@@ -325,7 +325,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/*'
+            'styles/fonts/*',
+            'data/*.json'
           ]
         }, {
           expand: true,
@@ -353,7 +354,8 @@ module.exports = function (grunt) {
         devFile: '<%= yeoman.app %>/bower_components/pushy/js/vendor/modernizr-2.6.2.min.js',
         outputFile: '.tmp/scripts/modernizr.js',
         tests: ['respond'],
-        uglify: false
+        uglify: false,
+        parseFiles : false
       },
       dist: {
         devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
@@ -375,7 +377,7 @@ module.exports = function (grunt) {
         'compass'
       ],
       dist: [
-        'coffee',
+        'coffee:dist',
         'compass:dist',
         'imagemin',
         'svgmin'

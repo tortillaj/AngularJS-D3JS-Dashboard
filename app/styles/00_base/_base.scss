@@ -1,7 +1,5 @@
 .container-fluid {
-  width: 98%;
+  width: 1100px;
 
-  @include breakpoint($screen-desktop) {
-    width: 1200px;
-  }
+
 }
