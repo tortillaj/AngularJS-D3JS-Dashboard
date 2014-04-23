@@ -1,11 +1,11 @@
-<div class="col-lg-12">
+<div class="col-md-12">
     <h2>Projects Overview <br>
         <small>Your projects, at a glance.</small>
     </h2>
     <tabset>
         <tab ng-repeat="data in questionData" heading="{{ data.name }}">
             <div class="row">
-                <section class="col-lg-6 table-responsive">
+                <section class="col-md-4 table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -37,7 +37,7 @@
                         </tbody>
                     </table>
                 </section>
-                <section class="col-lg-6">
+                <section class="col-md-8">
                     <nvd3-multi-bar-chart
                             data="data.lastWeek.datas"
                             id="{{ data.id }}"
@@ -45,12 +45,13 @@
                             tooltips="true"
                             tooltipcontent="questionToolTipContent()"
                             showXAxis="true"
-                            showYAxis="true"
-                            width="550"
+                            showYAxis="false"
+                            showValues="true"
+                            width="710"
                             height="400"
-                            showControls="true"
                             xAxisTickFormat="formatDateAsDayName()"
-                            color="colorPalette(data.lastWeek.datas)">
+                            color="colorPalette(data.lastWeek.datas)"
+                            margin="{top:20,right:10,left:0,bottom:70}">
                         <svg></svg>
                     </nvd3-multi-bar-chart>
                 </section>
@@ -58,15 +59,15 @@
         </tab>
     </tabset>
 </div>
-<div class="col-lg-12">
+<div class="col-md-12">
     <div class="row">
-        <section class="col-xs-12 col-lg-6">
+        <section class="col-md-6">
             <div class="well">
                 <h2>Clusters Summary <br>
                     <small>Overview of user cluster data.</small>
                 </h2>
                 <div class="row">
-                    <div class="col-xs-12 col-lg-8">
+                    <div class="col-md-8">
                         <nvd3-pie-chart
                                 data="clusters"
                                 id="clusterOverviewPieChart"
@@ -80,7 +81,7 @@
                             <svg></svg>
                         </nvd3-pie-chart>
                     </div>
-                    <div class="col-xs-12 col-lg-4">
+                    <div class="col-md-4">
                         <div ng-repeat="cluster in clusters">
                             <h3>{{ cluster.key }}</h3>
 
@@ -90,7 +91,7 @@
                 </div>
             </div>
         </section>
-        <section class="col-xs-12 col-lg-6">
+        <section class="col-md-6">
             <div class="well">
                 <h2>Nodes Summary <br>
                     <small>Trending responses from each node.</small>

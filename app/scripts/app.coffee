@@ -20,18 +20,23 @@ angular
       .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
+        title: 'Overview'
       .when '/clusters',
         templateUrl: 'views/clusters.html'
         controller: 'ClustersCtrl'
+        title: 'Clusters'
       .when '/nodes',
         templateUrl: 'views/nodes.html'
         controller: 'NodesCtrl'
+        title: 'Nodes'
       .when '/questions',
         templateUrl: 'views/questions.html'
         controller: 'QuestionsCtrl'
+        title: 'Questions'
       .when '/export',
         templateUrl: 'views/export.html'
         controller: 'ExportCtrl'
+        title: 'Export'
       .otherwise
         redirectTo: '/'
 
@@ -49,5 +54,8 @@ angular
         verifyIntegrity: true
         deleteOnExpire: 'aggressive'
 
-      $http.defaults.cache = $angularCacheFactory.get('cache');
+      $http.defaults.cache = $angularCacheFactory.get 'cache'
+
+      $rootScope.$on '$routeChangeSuccess', (event, current, previous) ->
+        $rootScope.title = current.$$route.title
   ]
