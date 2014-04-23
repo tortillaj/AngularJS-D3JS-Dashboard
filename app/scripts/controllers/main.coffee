@@ -8,7 +8,8 @@ angular.module('votifiAngularApp')
     # Questions
     #
     ##
-    Question.getQuestions().then((data) -> $scope.questionData = data)
+    Question.getQuestions().then (data) ->
+      $scope.questionData = data.projects
 
     $scope.formatDateAsDayName = ->
       (d) ->
@@ -36,8 +37,8 @@ angular.module('votifiAngularApp')
     # Nodes
     #
     ##
-    $scope.nodeData = Node.getNodes()
-    $scope.trendingNodes = $scope.nodeData[0]
+    $scope.nodeData = Node.getNodes().then (data) ->
+      $scope.trendingNodes = data
 
     $scope.nodeToolTipContent = ->
       (key, x, y, e, graph) ->

@@ -1,1 +1,33 @@
-<p>This is the questions view.</p>
+<div class="col-md-12">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Question</th>
+                <th>Votes</th>
+                <th>Likes</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="question in questionData">
+                <td>
+                    <button class="btn btn-success">Post To Facebook</button><br>
+                    <button class="btn" ng-if="question.report">Detailed Analytics</button>
+                </td>
+                <td>
+                    {{ question.question }}
+                </td>
+                <td>
+                    {{ question.votes }}
+                </td>
+                <td>
+                    {{ question.likes }}
+                </td>
+                <td>
+                    {{ question.comments }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,9 +1,9 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .controller 'QuestionsCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+  .controller 'QuestionsCtrl', ['Question', '$scope', 'Globals', (Question, $scope, Globals) ->
+
+    Question.getQuestions().then (data) ->
+      $scope.questionData = data.questions
+
+  ]
