@@ -38,20 +38,24 @@
                     </table>
                 </section>
                 <section class="col-md-8">
+                    <button ng-click="changeTimeFrame('weekly')">Last Week</button>
+                    <button ng-click="changeTimeFrame('monthly')">Last Month</button>
                     <nvd3-multi-bar-chart
-                            data="data.lastWeek.datas"
+                            data="chartData[$index]"
                             id="{{ data.id }}"
                             interactive="true"
                             tooltips="true"
                             tooltipcontent="questionToolTipContent()"
                             showXAxis="true"
-                            showYAxis="false"
+                            showYAxis="true"
                             showValues="true"
+                            showControls="false"
                             width="710"
-                            height="400"
+                            height="500"
                             xAxisTickFormat="formatDateAsDayName()"
                             color="colorPalette(data.lastWeek.datas)"
-                            margin="{top:20,right:10,left:0,bottom:70}">
+                            margin="{top:70,right:10,left:50,bottom:70}"
+                            yAxisTickFormat="questionYAxisFormat()">
                         <svg></svg>
                     </nvd3-multi-bar-chart>
                 </section>
@@ -94,7 +98,7 @@
         <section class="col-md-6">
             <div class="well">
                 <h2>Nodes Summary <br>
-                    <small>Trending responses from each node.</small>
+                    <small>Trending questions from each node.</small>
                 </h2>
                 <nvd3-discrete-bar-chart
                         data="trendingNodes.trending.datas"

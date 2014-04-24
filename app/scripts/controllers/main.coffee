@@ -8,20 +8,45 @@ angular.module('votifiAngularApp')
     # Questions
     #
     ##
+    $scope.timeScale = 'weekly'
+
     Question.getQuestions().then (data) ->
       $scope.questionData = data.projects
+      $scope.weeklyData = []
+      $scope.monthlyData = []
+      for k in [0...data.projects.length]
+        $scope.weeklyData.push data.projects[k].lastWeek.datas
+        $scope.monthlyData.push  data.projects[k].lastMonth.datas
+      $scope.chartData = $scope.weeklyData
 
     $scope.formatDateAsDayName = ->
       (d) ->
-        format = d3.time.format('%A')
+        switch $scope.timeScale
+          when 'weekly' then format = d3.time.format('%A')
+          when 'monthly' then format = d3.time.format('Week of %b %e')
+          else format = d3.time.format('%A')
         format(new Date(d * 1000))
 
     $scope.$on 'elementClick.directive', (angularEvent, event) ->
-      console.dir event
+      d3.selectAll('#project1 .nv-controlsWrap').attr('transform', 'translate(180,180)')
 
     $scope.questionToolTipContent = ->
       (key, x, y, e, graph) ->
         '<p>' + key + ': ' + y + '</p>'
+
+    $scope.changeTimeFrame = (type) ->
+      switch type
+        when 'weekly'
+          $scope.chartData = $scope.weeklyData
+          $scope.timeScale = 'weekly'
+        when 'monthly'
+          $scope.chartData = $scope.monthlyData
+          $scope.timeScale = 'monthly'
+        else $scope.chartData = $scope.weeklyData
+
+    $scope.questionYAxisFormat = ->
+      (d) ->
+        d3.round(d)
 
     #$interval (->
     #  $scope.width = 200
