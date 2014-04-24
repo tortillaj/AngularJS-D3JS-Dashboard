@@ -75,13 +75,14 @@
                         <nvd3-pie-chart
                                 data="clusters"
                                 id="clusterOverviewPieChart"
-                                width="350"
-                                height="350"
+                                width="325"
+                                height="325"
                                 x="xFunction()"
                                 y="yFunction()"
                                 tooltips="true"
                                 color="colorPalette(clusters)"
-                                tooltipcontent="clusterToolTipContent()">
+                                tooltipcontent="clusterToolTipContent()"
+                                margin="{top:0,left:0,right:0,bottom:0}">
                             <svg></svg>
                         </nvd3-pie-chart>
                     </div>
@@ -89,7 +90,7 @@
                         <div ng-repeat="cluster in clusters">
                             <h3>{{ cluster.key }}</h3>
 
-                            <p>{{ cluster.y / clusterData[0].total * 100 | number:1 }}%</p>
+                            <p>{{ cluster.y / clusterData.total * 100 | number:1 }}%</p>
                         </div>
                     </div>
                 </div>

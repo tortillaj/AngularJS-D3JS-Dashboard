@@ -11,11 +11,12 @@ angular.module('votifiAngularApp')
     $scope.activePage = (viewLocation) ->
       viewLocation is $location.path()
 
-    $scope.colorPalette = (data) ->
+    $scope.colorPalette = (data, c) ->
       (d, i) ->
+        count = c || data.length
         cb = Colorbrewer[Globals.colorBrewer]
-        palette = (if (data.length < 9) then cb[data.length] else cb[9])
-        if data.length < 3 then palette = cb[3]
+        palette = (if (count < 9) then cb[count] else cb[9])
+        if count < 3 then palette = cb[3]
         palette[i]
 
   ]

@@ -1,23 +1,14 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .factory 'Cluster', ['$resource', '$http', 'Globals', ($resource, $http, Globals) ->
+  .factory 'Cluster', ['$resource', '$http', '$q', 'Globals', ($resource, $http, $q, Globals) ->
     getClusters: () ->
-      [
-        total: 512 + 253 + 99
-        datas: [
-          {
-            key: "Cluster 1"
-            y: 512
-          }
-          {
-            key: "Cluster 2"
-            y: 253
-          }
-          {
-            key: "Cluster 3"
-            y: 99
-          }
-        ]
-      ]
+      deferred = $q.defer()
+
+      $http.get('/data/clusters.json',
+        cache: true
+      ).success (data) ->
+        deferred.resolve data
+
+      deferred.promise
   ]
