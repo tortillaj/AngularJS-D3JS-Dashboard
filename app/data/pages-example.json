@@ -1,0 +1,34 @@
+[
+  {
+    "appId": 14,
+    "clientId": 1,
+    "type": "facebook",
+    "pollId": 41,
+    "settings": null,
+    "modified": "xxxxx",
+    "fbPageId": "xxxxx",
+    "fbUserId": "xxxxxx",
+    "fbPageAccessToken": "xxxxxxxxxxxxx",
+    "tokenValid": true,
+    "numLikes": 0,
+    "numPosts": 1
+  },
+  {
+    "appId": 2,
+    "clientId": 1,
+    "type": "facebook",
+    "pollId": 41,
+    "settings": {
+      "showProfile": false,
+      "numAnonVotes": 18,
+      "publishStream": false
+    },
+    "modified": "xxxxx",
+    "fbPageId": "xxxxx",
+    "fbUserId": "xxxxx",
+    "fbPageAccessToken": "xxxxxxxxxxxxxxx",
+    "tokenValid": true,
+    "numLikes": 0,
+    "numPosts": 2
+  }
+]

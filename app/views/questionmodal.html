@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">×</button>
+    <h3 id="publishPollLabel">{{ question.question }}</h3>
+</div>
+<div class="modal-body">
+    <section class="panel panel-info">
+        <div class="panel-heading">Post Location</div>
+        <div class="panel-body">
+            <p>
+                <label for="pollPage">Where should the poll be posted?</label> <select id="pollPage"></select>
+            </p>
+        </div>
+    </section>
+
+    <section class="panel panel-info">
+        <div class="panel-heading">Post Details</div>
+        <div class="panel-body">
+            <small>
+                <span class="badge badge-info">Note</span> All parts are optional. The question text is provided by Votifi, but can be edited.
+            </small>
+            <br/>
+            <blockquote class="split">
+                <p>
+                    <label for="postQuestion">Status question</label> <textarea id="postQuestion"></textarea>
+                </p>
+
+                <p>
+                    <label for="postDescription">Survey question / description</label>
+                    <textarea id="postDescription"></textarea>
+                </p>
+
+                <p>
+                    <label for="postTitle">Survey title</label> <input type="text" id="postTitle" placeholder="Title"/>
+                </p>
+
+                <p>
+                    <label for="postImage">Image</label>
+                    <input type="url" id="postImage" placeholder="http://example.com/image.jpg"/>
+                </p>
+
+                <p>
+                    <img src="~/Images/fb-example.jpg" width="480" alt=""/>
+                </p>
+            </blockquote>
+        </div>
+    </section>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-info btn-facebook" id="add_new_post">Publish</button>
+</div>
+

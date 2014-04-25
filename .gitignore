@@ -5,3 +5,4 @@ dist
 app/bower_components
 .idea
 Gemfile.lock
+app/data/pages.json

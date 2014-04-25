@@ -12,7 +12,7 @@
         <tbody>
             <tr ng-repeat="question in questionData">
                 <td>
-                    <button class="btn btn-success">Post To Facebook</button><br>
+                    <button ng-click="open(question)" class="btn btn-success">Post To Facebook</button><br>
                     <button class="btn" ng-if="question.report">Detailed Analytics</button>
                 </td>
                 <td>
