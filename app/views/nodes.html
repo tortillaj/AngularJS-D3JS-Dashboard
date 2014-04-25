@@ -3,9 +3,7 @@
     <div class="row" ng-repeat="r in rows">
         <div class="col-md-6" ng-repeat="node in r">
             <article class="panel panel-default">
-                <header class="panel-heading">
-                    <h3>{{ node.key }}</h3>
-                </header>
+                <header class="panel-heading">{{ node.key }}</header>
                 <section class="panel-body">
                     <nvd3-discrete-bar-chart
                             data="[node]"
