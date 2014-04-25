@@ -1,7 +1,11 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .controller 'BodyCtrl', ['$scope', '$document', '$location', 'Colorbrewer', 'Globals', ($scope, $document, $location, Colorbrewer, Globals) ->
+  .controller 'BodyCtrl', ['$scope', '$document', '$location', 'Colorbrewer', 'Globals', 'Account', ($scope, $document, $location, Colorbrewer, Globals, Account) ->
+
+    Account.getAccount().then (data) ->
+      $scope.account = data
+
     $scope.sidebar =
       isOpen: false
 

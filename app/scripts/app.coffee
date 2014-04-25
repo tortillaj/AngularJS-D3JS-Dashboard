@@ -21,22 +21,27 @@ angular
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
         title: 'Overview'
+        subtitle: 'Your Analytics Summary'
       .when '/clusters',
         templateUrl: 'views/clusters.html'
         controller: 'ClustersCtrl'
         title: 'Clusters'
+        subtitle: 'View Response Data by User'
       .when '/nodes',
         templateUrl: 'views/nodes.html'
         controller: 'NodesCtrl'
         title: 'Nodes'
+        subtitle: 'User Responses by Node'
       .when '/questions',
         templateUrl: 'views/questions.html'
         controller: 'QuestionsCtrl'
         title: 'Questions'
+        subtitle: 'Post Questions to Facebook'
       .when '/export',
         templateUrl: 'views/export.html'
         controller: 'ExportCtrl'
         title: 'Export'
+        subtitle: 'Export Your Data'
       .otherwise
         redirectTo: '/'
 
@@ -58,4 +63,5 @@ angular
 
       $rootScope.$on '$routeChangeSuccess', (event, current, previous) ->
         $rootScope.title = current.$$route.title
+        $rootScope.subtitle = current.$$route.subtitle
   ]

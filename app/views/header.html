@@ -1,22 +1,35 @@
-<div class="col-lg-12">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li ng-class="{ active: activePage('/')}"><a href="/">Overview</a></li>
-                    <li ng-class="{ active: activePage('/questions')}"><a href="/#/questions">Questions</a></li>
-                    <li ng-class="{ active: activePage('/nodes')}"><a href="/#/nodes">Nodes</a></li>
-                    <li ng-class="{ active: activePage('/clusters')}"><a href="/#/clusters">Clusters</a></li>
-                    <li ng-class="{ active: activePage('/export')}"><a href="/#/export">Export</a></li>
-                </ul>
-            </div>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <header class="page-header">
+                <img ng-src="{{ account.logo }}" class="logo" alt="{{ account.name }}">
+                <h1>{{ account.name }} <br><small>{{ subtitle }}</small></h1>
+            </header>
         </div>
-    </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{ active: activePage('/')}"><a href="/">Overview</a></li>
+                            <li ng-class="{ active: activePage('/questions')}"><a href="/#/questions">Questions</a></li>
+                            <li ng-class="{ active: activePage('/nodes')}"><a href="/#/nodes">Nodes</a></li>
+                            <li ng-class="{ active: activePage('/clusters')}"><a href="/#/clusters">Clusters</a></li>
+                            <li ng-class="{ active: activePage('/export')}"><a href="/#/export">Export</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
 </div>

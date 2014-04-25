@@ -28,17 +28,14 @@
 
     <!-- Add your site or application content here -->
     <aside class="pushy pushy-left" role="navigation">
-        <div class="item">
-            <i class="inverted circular teal awesome download cloud icon"></i> <b>TheGrio</b>
-        </div>
-        <div class="item">
-            <nav class="menu">
-                <a href="#" class="ui header item">ADMIN</a>
-                <a href="#" class="item">Configure Facebook Apps</a>
-                <a href="#" class="item">Settings</a>
-                <a href="#" class="item">Logout</a>
-            </nav>
-        </div>
+        <img ng-src="{{ account.logo }}" class="logo" alt="{{ account.name }}">
+        <h2>{{ account.name }}</h2>
+        <nav class="menu">
+            <a href="#" class="ui header item">ADMIN</a>
+            <a href="#" class="item">Configure Facebook Apps</a>
+            <a href="#" class="item">Settings</a>
+            <a href="#" class="item">Logout</a>
+        </nav>
     </aside>
     <div class="container-fluid" id="container">
         <div class="row">
@@ -115,6 +112,8 @@
     <script src="scripts/services/node.js"></script>
     <script src="scripts/services/cluster.js"></script>
     <script src="scripts/services/colorbrewer.js"></script>
+    <script src="scripts/services/account.js"></script>
+    <script src="scripts/services/pages.js"></script>
     <!-- endbuild -->
 
 </body>
