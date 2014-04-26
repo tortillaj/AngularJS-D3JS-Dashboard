@@ -1,4 +1,19 @@
 <div class="col-md-12">
+    <div class="panel panel-info">
+        <div class="panel-heading">Facebook Status</div>
+        <div class="panel-body">
+            <div ng-if="loginStatus.status === 'connected'">
+                <p>{{ me.name }}</p>
+            </div>
+            <div ng-if="loginStatus.status !== 'connected'">
+                <p>You need to login to Facebook before you can post to your account.</p>
+                <button ng-click="loginFB()" ng-disabled="loginStatus.status == 'connected'">Login to Facebook</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
     <table class="table table-striped">
         <thead>
             <tr>

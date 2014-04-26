@@ -27,6 +27,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <!-- div id="fb-root" data-app-id="@backEndFbAppId" data-frontend-app-id="@frontEndFbAppId" data-channel-file="@Url.Action("Channel", "Home", null, Request.Url.Scheme)"></div -->
+    <div id="fb-root" data-app-id="547877258584072" data-frontend-app-id="390264891089891" data-channel-file="http://localhost:9000/views/channel.html"></div>
+
     <aside class="pushy pushy-left" role="navigation">
         <img ng-src="{{ account.logo }}" class="logo" alt="{{ account.name }}">
         <h2>{{ account.name }}</h2>
@@ -49,6 +52,10 @@
     </div>
 
     <div class="site-overlay"></div>
+
+    <script>
+        var fbSettings = { "data-app-id":"547877258584072", "data-frontend-app-id":"390264891089891", "data-channel-file": "http://localhost:9000/views/channel.html"}
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -94,6 +101,7 @@
     <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
     <!-- endbower -->
+    <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
     <script src="bower_components/pushy/js/pushy.js"></script>
     <!-- endbuild -->
 
@@ -113,7 +121,7 @@
     <script src="scripts/services/cluster.js"></script>
     <script src="scripts/services/colorbrewer.js"></script>
     <script src="scripts/services/account.js"></script>
-    <script src="scripts/services/pages.js"></script>
+    <script src="scripts/services/page.js"></script>
     <!-- endbuild -->
 
 </body>

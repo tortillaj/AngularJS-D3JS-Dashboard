@@ -9,13 +9,16 @@ angular
     'ngAnimate',
     'nvd3ChartDirectives',
     'ui.bootstrap',
-    'jmdobry.angular-cache'
+    'jmdobry.angular-cache',
+    'ezfb'
   ])
   .constant 'Globals',
     apiPrefix: '/api'
     colorBrewer: 'YlOrRd'
+    fbPermissions: 'user_likes,manage_pages,read_stream,publish_actions,offline_access,status_update,user_photos,read_insights'
+    fbOffline: true
 
-  .config ($routeProvider) ->
+  .config ($routeProvider, ezfbProvider) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
@@ -44,6 +47,11 @@ angular
         subtitle: 'Export Your Data'
       .otherwise
         redirectTo: '/'
+
+    ezfbProvider.setInitParams
+      appId: 390264891089891
+
+    return
 
   .run [
     '$rootScope',

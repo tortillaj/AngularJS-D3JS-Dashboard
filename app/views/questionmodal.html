@@ -7,7 +7,10 @@
         <div class="panel-heading">Post Location</div>
         <div class="panel-body">
             <p>
-                <label for="pollPage">Where should the poll be posted?</label> <select id="pollPage"></select>
+                <label for="pollPage">Where should the poll be posted?</label>
+                <select id="pollPage" ng-model="post.page">
+
+                </select>
             </p>
         </div>
     </section>
@@ -21,21 +24,23 @@
             <br/>
             <blockquote class="split">
                 <p>
-                    <label for="postQuestion">Status question</label> <textarea id="postQuestion"></textarea>
+                    <label for="postQuestion">Status question</label>
+                    <textarea id="postQuestion" ng-model="post.text"></textarea>
                 </p>
 
                 <p>
                     <label for="postDescription">Survey question / description</label>
-                    <textarea id="postDescription"></textarea>
+                    <textarea id="postDescription" ng-model="post.description"></textarea>
                 </p>
 
                 <p>
-                    <label for="postTitle">Survey title</label> <input type="text" id="postTitle" placeholder="Title"/>
+                    <label for="postTitle">Survey title</label>
+                    <input type="text" id="postTitle" placeholder="question.question" ng-model="post.title">
                 </p>
 
                 <p>
                     <label for="postImage">Image</label>
-                    <input type="url" id="postImage" placeholder="http://example.com/image.jpg"/>
+                    <input type="url" id="postImage" placeholder="http://example.com/image.jpg" ng-model="post.image">
                 </p>
 
                 <p>
