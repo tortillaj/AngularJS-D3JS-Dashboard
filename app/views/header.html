@@ -32,4 +32,22 @@
             </nav>
         </div>
     </div>
+
+    <div class="row" ng-if="account.hasFacebook">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">Facebook Status</div>
+                <div class="panel-body">
+                    <div ng-if="loginStatus.status === 'connected'">
+                        <p>Welcome back, {{ me.name }}.</p>
+                        <p>You care currently logged into Facebook, which means you can create new apps.</p>
+                    </div>
+                    <div ng-if="loginStatus.status !== 'connected'">
+                        <p>You are not currently logged into Facebook.</p>
+                        <button ng-click="loginFB()" ng-disabled="loginStatus.status == 'connected'">Login to Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

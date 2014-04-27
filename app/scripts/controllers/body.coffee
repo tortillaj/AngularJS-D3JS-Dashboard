@@ -3,9 +3,6 @@
 angular.module('votifiAngularApp')
 .controller 'BodyCtrl', ['$scope', '$document', '$location', 'Colorbrewer', 'Globals', 'Account', 'ezfb', '$q',
     ($scope, $document, $location, Colorbrewer, Globals, Account, ezfb, $q) ->
-      Account.getAccount().then (data) ->
-        $scope.account = data
-
       $scope.sidebar =
         isOpen: false
 
@@ -22,6 +19,14 @@ angular.module('votifiAngularApp')
           palette = (if (count < 9) then cb[count] else cb[9])
           if count < 3 then palette = cb[3]
           palette[i]
+
+      ##
+      #
+      # Account Related
+      #
+      ##
+      Account.getAccount().then (data) ->
+        $scope.account = data
 
       ##
       #
