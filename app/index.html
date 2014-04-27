@@ -35,8 +35,8 @@
         <h2>{{ account.name }}</h2>
         <nav class="menu">
             <a href="#" class="ui header item">ADMIN</a>
-            <a href="#" class="item">Configure Facebook Apps</a>
-            <a href="#" class="item">Settings</a>
+            <a href="/#/apps" class="item">Configure Facebook Apps</a>
+            <a href="/#/settings" class="item">Settings</a>
             <a href="#" class="item">Logout</a>
         </nav>
     </aside>
@@ -87,6 +87,18 @@
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
     <!-- endbower -->
     <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
@@ -112,6 +124,9 @@
     <script src="scripts/services/page.js"></script>
     <script src="scripts/services/DiscourseAnalytics.js"></script>
     <script src="scripts/services/facebook.js"></script>
+    <script src="scripts/controllers/apps.js"></script>
+    <script src="scripts/controllers/settings.js"></script>
+    <script src="scripts/services/poll.js"></script>
     <!-- endbuild -->
 
 </body>

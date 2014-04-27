@@ -46,6 +46,16 @@ angular
         controller: 'ExportCtrl'
         title: 'Export'
         subtitle: 'Export Your Data'
+      .when '/apps',
+        templateUrl: 'views/apps.html'
+        controller: 'AppsCtrl'
+        title: 'Facebook Pages'
+        subtitle: 'Configure Your Facebook Pages'
+      .when '/settings',
+        templateUrl: 'views/settings.html'
+        controller: 'SettingsCtrl'
+        title: 'Site Settings'
+        subtitle: 'Edit Site Settings'
       .otherwise
         redirectTo: '/'
 
@@ -73,4 +83,7 @@ angular
       $rootScope.$on '$routeChangeSuccess', (event, current, previous) ->
         $rootScope.title = current.$$route.title
         $rootScope.subtitle = current.$$route.subtitle
+
+      $rootScope.$on 'fb.login', (event, response) ->
+        #window.location.reload()
   ]

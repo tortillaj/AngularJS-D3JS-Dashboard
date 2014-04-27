@@ -1,0 +1,21 @@
+<div class="modal-header">
+    Add a New App
+</div>
+<div class="modal-body">
+    <p>
+        <label for="pollPage">Which app page would you like to add?</label>
+        <select id="pollPage" ng-model="new.appId" ng-options="a.id as a.name for a in apps">
+            <option value="">--- Pick a Page ---</option>
+        </select>
+    </p>
+    <p>
+        <label for="pollId">Which poll would you like to publish?</label>
+        <select id="pollId" ng-model="new.pollId" ng-options="p.poll_id as p.name for p in polls">
+            <option value="">--- Pick a Poll ---</option>
+        </select>
+    </p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-info" ng-click="create()">Create</button>
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "poll_id": 1,
+    "name": "Profiling",
+    "client_id": 1
+  },
+  {
+    "poll_id": 2,
+    "name": "Daily Polls",
+    "client_id": 1
+  },
+  {
+    "poll_id": 41,
+    "name": "Votifi Facebook App",
+    "client_id": 1
+  }
+]

@@ -1,0 +1,45 @@
+<div class="col-md-12" ng-if="account.hasFacebook">
+    <div class="panel panel-info">
+        <div class="panel-heading">Facebook Status</div>
+        <div class="panel-body">
+            <div ng-if="loginStatus.status === 'connected'">
+                <h3>Welcome back, {{ me.name }}.</h3>
+                <p class="pull-left">You are currently logged into Facebook, which means you can create add new pages.</p>
+                <button class="btn btn-success pull-right" ng-click="open()" ng-disabled="!apps.data.length">Add Facebook Page</button>
+            </div>
+            <div ng-if="loginStatus.status !== 'connected'">
+                <p class="pull-left">You are not currently logged into Facebook.</p>
+                <button class="btn btn-info pull-right" ng-click="loginFB()" ng-disabled="loginStatus.status == 'connected'">Login to Facebook</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Page Name</th>
+            <th>Posts</th>
+            <th>Likes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="page in pages">
+            <td>
+                <img src="http://graph.facebook.com/{{ page.fbPageId }}/picture?type=square" class="img-thumbnail" width="50" height="50" alt/>
+            </td>
+            <td>
+                <a target="_blank" href="{{ page.fbPage.link }}"> {{ page.fbPage.name }} </a>
+            </td>
+            <td>
+                {{ page.numPosts }}
+            </td>
+            <td>
+                {{ page.fbPage.likes }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

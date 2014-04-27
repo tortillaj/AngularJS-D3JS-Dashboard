@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-.controller 'BodyCtrl', ['$scope', '$document', '$location', 'Colorbrewer', 'Globals', 'Account', 'ezfb', '$q',
-    ($scope, $document, $location, Colorbrewer, Globals, Account, ezfb, $q) ->
+.controller 'BodyCtrl', ['$rootScope', '$scope', '$document', '$location', 'Colorbrewer', 'Facebook', 'Globals', 'Account', 'ezfb', '$q',
+    ($rootScope, $scope, $document, $location, Colorbrewer, Facebook, Globals, Account, ezfb, $q) ->
       $scope.sidebar =
         isOpen: false
 
@@ -23,6 +23,9 @@ angular.module('votifiAngularApp')
       $scope.messages = []
       $scope.exitMessage = (index) ->
         $scope.messages.splice(index, 1)
+      $rootScope.$on '$routeChangeSuccess', (event, current, previous) ->
+        $scope.messages = []
+
 
       ##
       #
@@ -38,21 +41,17 @@ angular.module('votifiAngularApp')
       #
       ##
       $scope.loginFB = ->
-        ezfb.login(null, {scope: Globals.fbPermissions})
+        ezfb.login(null, {scope: Globals.fbPermissions}).then () ->
+          window.location.reload()
 
-      _updateFBStatus = ->
-        ezfb.getLoginStatus().then(->
-          ezfb.api '/me'
-        ).then (me) ->
-          $scope.me = me
-          return
+      $scope.getLoginStatus = ->
+        Facebook.getLoginSatus().then (res) ->
+          if res
+            $scope.loginStatus = res[0]
+            $scope.me = res[1][0]
+            $scope.$emit('fb.login', res)
 
-      _updateLoginStatus = ->
-        ezfb.getLoginStatus().then (res) ->
-          $scope.loginStatus = res
-
-      _updateFBStatus()
-      _updateLoginStatus()
+      #$scope.getLoginStatus()
 
       return
   ]
