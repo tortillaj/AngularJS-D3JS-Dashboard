@@ -32,5 +32,8 @@ angular.module('votifiAngularApp')
       )
       deferred.promise
 
+    findPage: (pid, pages) ->
+      pages.filter (page) ->
+        page.fbPageId is pid
 
   ]

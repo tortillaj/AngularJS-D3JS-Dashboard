@@ -20,6 +20,10 @@ angular.module('votifiAngularApp')
           if count < 3 then palette = cb[3]
           palette[i]
 
+      $scope.messages = []
+      $scope.exitMessage = (index) ->
+        $scope.messages.splice(index, 1)
+
       ##
       #
       # Account Related

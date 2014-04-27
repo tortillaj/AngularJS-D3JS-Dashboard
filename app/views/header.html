@@ -33,6 +33,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <alert ng-repeat="message in messages" type="message.type" closeMessage="exitMessage($index)">{{ message.content }}</alert>
+        </div>
+    </div>
+
     <div class="row" ng-if="account.hasFacebook">
         <div class="col-md-12">
             <div class="panel panel-info">

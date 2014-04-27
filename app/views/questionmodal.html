@@ -3,13 +3,15 @@
   <h3 id="publishPollLabel">{{ question.question }}</h3>
 </div>
 <div class="modal-body">
+  <section class="alert alert-danger" ng-if="alerts"></section>
+
   <section class="panel panel-info">
     <div class="panel-heading">Post Location</div>
     <div class="panel-body">
       <p>
         <label for="pollPage">Where should the poll be posted?</label>
-        <select id="pollPage" ng-model="post.fbPage" ng-options="p.fbPage.id as p.fbPage.name for p in pages">
-          <option value="">Pick a Page</option>
+        <select id="pollPage" ng-model="post.fbPageId" ng-options="p.fbPage.id as p.fbPage.name for p in pages">
+          <option value="---">Pick a Page</option>
         </select>
       </p>
     </div>
@@ -26,7 +28,7 @@
       <blockquote class="split">
         <p>
           <label for="postQuestion">Status question</label>
-          <textarea id="postQuestion" ng-model="post.text"></textarea>
+          <textarea id="postQuestion" ng-model="post.message"></textarea>
         </p>
 
         <p>
@@ -36,12 +38,12 @@
 
         <p>
           <label for="postTitle">Survey title</label>
-          <input type="text" id="postTitle" placeholder="{{ question.question }}" ng-model="post.title">
+          <input type="text" id="postTitle" placeholder="{{ question.question }}" ng-model="post.name" value="{{ question.question }}">
         </p>
 
         <p>
           <label for="postImage">Image</label>
-          <input type="url" id="postImage" placeholder="http://example.com/image.jpg" ng-model="post.image">
+          <input type="url" id="postImage" placeholder="http://example.com/image.jpg" ng-model="post.picture">
         </p>
 
         <p>

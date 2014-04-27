@@ -21,16 +21,30 @@ angular.module('votifiAngularApp')
             question
           pages: ->
             $scope.pages
+          messages: ->
+            $scope.messages
 
 
   ]
 
 
-QuestionModalCtrl = ($scope, $modalInstance, question, pages) ->
+QuestionModalCtrl = ($scope, $modalInstance, Facebook, DiscourseAnalytics, question, pages, messages) ->
   $scope.question = question
   $scope.pages = pages
-  $scope.post = {}
+  $scope.messages = messages
+
+  $scope.post =
+    qid: $scope.question.qid
   $scope.publish = ->
-    console.dir $scope.post
+    Facebook.postLink($scope.post, pages).then (response) ->
+      console.dir response
+      #DiscourseAnalytics.createFacebookPost(
+      #  poll_id: $scope.post.qid
+      #  fb_page_id: $scope.post.fbPageId
+      #  fb_post_id: response.id
+      #).then () ->
+      #  $scope.cancel()
+      $scope.messages.push({ type: 'success', content: 'Your post was successful!' })
+      $scope.cancel()
   $scope.cancel = ->
     $modalInstance.dismiss('cancel')

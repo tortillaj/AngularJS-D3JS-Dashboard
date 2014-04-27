@@ -17,8 +17,9 @@ angular
     colorBrewer: 'YlOrRd'
     fbPermissions: 'user_likes,manage_pages,read_stream,publish_actions,offline_access,status_update,user_photos,read_insights'
     fbOffline: true
+    fbAppId: 390264891089891
 
-  .config ($routeProvider, ezfbProvider) ->
+  .config ($routeProvider, ezfbProvider, Globals) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
@@ -49,7 +50,7 @@ angular
         redirectTo: '/'
 
     ezfbProvider.setInitParams
-      appId: 390264891089891
+      appId: Globals.fbAppId
 
     return
 

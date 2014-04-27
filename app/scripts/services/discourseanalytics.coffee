@@ -1,14 +1,24 @@
 'use strict'
 
 angular.module('votifiAngularApp')
-  .factory 'DiscourseAnalytics', () ->
-    # Service logic
-    # ...
+  .factory 'DiscourseAnalytics', ['$http', '$q', 'Globals', ($http, $q, Globals) ->
 
-    meaningOfLife = 42
+    createFacebookApp: (details) ->
+      deferred = $q.deferred()
+      $http.post('/apps/createfacebookapp',
+        details
+      ).success (data) ->
+        deferred.resolve data
 
-    # Public API here
-    {
-      someMethod: () ->
-        meaningOfLife
-    }
+      deferred.promise
+
+    createFacebookPost: (details) ->
+      deferred = $q.deferred()
+      $http.post('/questions/createfacebookpost',
+        details
+      ).success (data) ->
+        deferred.resolve data
+
+      deferred.promise
+
+  ]
