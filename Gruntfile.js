@@ -323,7 +323,6 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/*',
             'data/*.json'
@@ -368,8 +367,8 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
+        'html2js:server',
         'coffee:dist',
-        'modernizr:server',
         'compass:server',
         'notify:compass'
       ],
@@ -381,7 +380,7 @@ module.exports = function (grunt) {
         'coffee:dist',
         'compass:dist',
         'imagemin',
-        'svgmin'
+        'html2js:server'
       ]
     },
 
@@ -426,6 +425,21 @@ module.exports = function (grunt) {
           message: 'Compass task complete'
         }
       }
+    },
+
+    // convert HTML templates for Angular into JS
+    html2js: {
+      options: {
+        base: '<%= yeoman.app %>'
+      },
+      server: {
+        src: ['<%= yeoman.app %>/views/*.html'],
+        dest: '.tmp/scripts/templates.js'
+      },
+      dist: {
+        src: ['<%= yeoman.app %>/views/*.html'],
+        dest: '<%= yeoman.dist %>/scripts/templates.js'
+      }
     }
   });
 
@@ -439,6 +453,7 @@ module.exports = function (grunt) {
       'clean:server',
       'bowerInstall',
       'concurrent:server',
+      'modernizr:server',
       'autoprefixer',
       'connect:livereload',
       'watch'

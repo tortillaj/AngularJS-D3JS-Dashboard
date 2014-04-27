@@ -2,6 +2,7 @@
 
 angular
   .module('votifiAngularApp', [
+    'templates-server',
     'ngCookies',
     'ngResource',
     'ngSanitize',
