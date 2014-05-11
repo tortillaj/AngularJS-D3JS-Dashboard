@@ -25,6 +25,11 @@
 }
 
 .pushy {
+  .logo {
+    width: 90%;
+    margin: $base-margin auto;
+    display: block;
+  }
   h2 {
     text-align: center;
   }

@@ -31,17 +31,17 @@ angular
         templateUrl: 'views/clusters.html'
         controller: 'ClustersCtrl'
         title: 'Clusters'
-        subtitle: 'View Response Data by User'
+        subtitle: 'View Clusters of Users'
       .when '/nodes',
         templateUrl: 'views/nodes.html'
         controller: 'NodesCtrl'
-        title: 'Nodes'
-        subtitle: 'User Responses by Node'
+        title: 'Categories'
+        subtitle: 'View your Popular Categories'
       .when '/questions',
         templateUrl: 'views/questions.html'
         controller: 'QuestionsCtrl'
-        title: 'Questions'
-        subtitle: 'Post Questions to Facebook'
+        title: 'Pages'
+        subtitle: 'Post Your Pages to Facebook'
       .when '/export',
         templateUrl: 'views/export.html'
         controller: 'ExportCtrl'

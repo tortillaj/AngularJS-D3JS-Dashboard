@@ -1,6 +1,6 @@
 {
   "isAdmin": false,
   "has_facebook": true,
-  "logo": "/images/grio-logo-circle.png",
-  "name": "TheGrio"
+  "logo": "/images/generic-logo.png",
+  "name": "Client Name"
 }
