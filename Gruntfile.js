@@ -214,7 +214,9 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= yeoman.dist %>/styles/fonts/*',
+            '!<%= yeoman.dist %>/scripts/shims/{,*/}*.js',
+            '!<%= yeoman.dist %>/images/generic-logo.png'
           ]
         }
       }
@@ -336,6 +338,13 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/bower_components/webshim/js-webshim/minified/shims',
+          dest: '<%= yeoman.dist %>/scripts/shims',
+          src: [
+            '{,*/}*.{js,css,png,gif}'
+          ]
         }]
       },
       styles: {
