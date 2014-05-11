@@ -1,0 +1,20 @@
+.page--clusters {
+  .chart__cluster--page {
+    .statistic {
+      &:first-child {
+        text-align: right;
+        border-right: 1px solid $light-grey;
+      }
+    }
+  }
+  .clusters__cluster--page {
+    .panel-body {
+      .statistic {
+        &:first-child {
+          text-align: right;
+          border-right: 1px solid $light-grey;
+        }
+      }
+    }
+  }
+}

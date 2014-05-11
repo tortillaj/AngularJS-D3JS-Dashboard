@@ -9,15 +9,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/pushy/css/pushy.css" />
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/vendor.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -31,23 +32,22 @@
     <div id="fb-root" data-app-id="547877258584072" data-frontend-app-id="390264891089891" data-channel-file="http://localhost:9000/views/channel.html"></div>
 
     <aside class="pushy pushy-left" role="navigation">
-        <img ng-src="{{ account.logo }}" class="logo" alt="{{ account.name }}">
+        <img ng-src="{{ account.logo }}" class="logo" alt="{{ account.name }}" ng-if="account.logo.length">
         <h2>{{ account.name }}</h2>
         <nav class="menu">
-            <a href="#" class="ui header item">ADMIN</a>
-            <a href="/#/apps" class="item">Configure Facebook Apps</a>
+            <h3>ADMIN</h3>
             <a href="/#/settings" class="item">Settings</a>
             <a href="#" class="item">Logout</a>
         </nav>
     </aside>
-    <div class="container-fluid" id="container">
-        <div class="row">
+    <div class="container-fluid main-content" id="container">
+        <div class="row top-bar">
             <div class="col-lg-12">
-                <i class="menu-btn glyphicon glyphicon-align-justify"></i>
-                <h1 class="logo logo--discourse-analytics">Discourse Analytics</h1>
+                <i class="menu-btn glyphicon glyphicon-cog pull-left"></i>
+                <h1 class="logo logo--discourse-analytics pull-right">Discourse Analytics</h1>
             </div>
         </div>
-        <header class="row" role="branding" ng-include src="'views/header.html'"></header>
+        <header class="row page-header" role="branding" ng-include src="'views/header.html'"></header>
         <main class="row" ng-view=""></main>
     </div>
 
@@ -87,19 +87,9 @@
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
+    <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <script src="bower_components/webshim/js-webshim/minified/polyfiller.js"></script>
     <!-- endbower -->
     <script src="bower_components/angular-easyfb/angular-easyfb.js"></script>
     <script src="bower_components/pushy/js/pushy.js"></script>
@@ -107,6 +97,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/templates.js"></script>
+    <script src="scripts/shims.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/body.js"></script>

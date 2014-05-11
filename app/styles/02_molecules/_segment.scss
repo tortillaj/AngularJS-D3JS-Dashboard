@@ -1,0 +1,29 @@
+.segment {
+  @include box-shadow(rgba(0,0,0,0.1), 0, 1px, 1px);
+  background-color: lighten($pale-grey, 1%);
+  border: 1px solid $dark-grey;
+  padding: $double-margin;
+  &.panel {
+    border-radius: 0px;
+    padding: 0;
+    .panel-heading {
+      @extend .oswald-font;
+      @include clearfix;
+      @include background-image(linear-gradient($pale-grey, $pale-dark-grey));
+    }
+  }
+}
+
+.segment, .segment--transparent {
+  margin-bottom: 4 * $base-margin;
+}
+
+.segment__title {
+  margin: 0 0 $base-margin;
+  padding: 0 0 15px;
+  border-bottom: 1px solid $pale-dark-grey;
+}
+
+.site-overlay {
+  background-color: rgba(black, 0.7);
+}

@@ -1,0 +1,28 @@
+.form--filter-questions {
+  margin-bottom: $double-margin;
+
+  .form-group {
+    margin-bottom: 0;
+  }
+  .control-label {
+    @extend .oswald-font;
+    font-size: 22px;
+  }
+  .control {
+    input[type=text] {
+      width: 100%;
+      padding: 6px $base-margin;
+      font-size: 20px;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  .form--filter-questions {
+    .control {
+      input[type=text] {
+        padding: $base-margin;
+      }
+    }
+  }
+}

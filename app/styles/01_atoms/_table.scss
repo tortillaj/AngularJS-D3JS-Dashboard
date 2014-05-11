@@ -1,0 +1,27 @@
+.table-data {
+  thead {
+    font-size: 14px;
+    th {
+      @extend .oswald-font;
+      &:nth-child(n + 2) {
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    font-size: 14px;
+    tr {
+      &:nth-child(even) {
+        background-color: $pale-grey;
+      }
+      td {
+        &:first-child {
+          width: 50%;
+        }
+        &:nth-child(n + 2) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

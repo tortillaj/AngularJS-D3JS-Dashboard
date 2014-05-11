@@ -1,0 +1,28 @@
+.top-bar {
+  padding: $base-margin 0;
+
+  h1 {
+    margin: 0;
+  }
+
+  i {
+    &:before {
+      font-size: 40px;
+      cursor: pointer;
+    }
+  }
+}
+
+.page-header {
+  border: none;
+  margin-bottom: 4 * $base-margin;
+
+  .page-branding {
+    margin-bottom: $double-margin;
+
+    .logo {
+      max-width: 100px;
+      margin-right: $double-margin;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.tabbable {
+
+  .nav-tabs {
+    border: none;
+    li {
+      a {
+        @extend .oswald-font-light;
+        @include link-colors(darken($dark-grey, 20%), darken($dark-grey, 30%));
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        padding-bottom: 0;
+        &:hover {
+          background-color: transparent;
+          border: none !important;
+        }
+        .active-tab {
+          color: transparent;
+          font-size: 10px;
+        }
+      }
+      &.active {
+        border-bottom: 2px solid $off-black;
+        a {
+          color: $off-black !important;
+          .active-tab {
+            color: $off-black;
+          }
+        }
+      }
+    }
+  }
+
+  .tab-pane {
+    padding: $base-margin 0;
+
+    .btn-group {
+      margin-left: 50px;
+    }
+  }
+}

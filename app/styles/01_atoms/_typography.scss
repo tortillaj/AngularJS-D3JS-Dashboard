@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5 {
+  @extend .oswald-font;
+  text-transform: uppercase;
+  small {
+    @extend .oswald-font--light;
+    text-transform: capitalize;
+  }
+}
+
+.title--partial {
+  margin-bottom: $triple-margin;
+}

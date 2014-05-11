@@ -85,6 +85,23 @@ angular
         $rootScope.title = current.$$route.title
         $rootScope.subtitle = current.$$route.subtitle
 
+      $rootScope.$on '$viewContentLoaded', (event) ->
+        # apply any polyfills needed
+        if webshims
+          jQuery('main').updatePolyfill()
+
       $rootScope.$on 'fb.login', (event, response) ->
         #window.location.reload()
   ]
+
+angular.module('votifiAngularApp').filter 'nospace', ->
+  (value) ->
+    (if (not value) then "" else value.replace(/[^a-zA-Z0-9]/g, ""))
+
+angular.module('votifiAngularApp').filter 'thousandsToK', ->
+  (value) ->
+    0 if not value
+    if value < 1000
+      value
+    else
+      (value / 1000).toFixed(value % 1000 != 0) + 'k'

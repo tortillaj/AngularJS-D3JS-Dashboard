@@ -1,0 +1,13 @@
+.statistic {
+  .statistic__title {
+    font-size: 30px;
+    line-height: 0.85;
+  }
+  .statistic__title--small {
+    font-size: 55%;
+  }
+  .statistic__title--first {
+    text-align: right;
+    border-right: 1px solid $light-grey;
+  }
+}

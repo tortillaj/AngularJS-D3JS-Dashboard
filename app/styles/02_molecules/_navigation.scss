@@ -1,0 +1,46 @@
+.page-navigation {
+  nav {
+    @include background-image(linear-gradient($pale-grey, $pale-dark-grey));
+    height: $navigation-height;
+    border: 1px solid $light-grey;
+    overflow: hidden;
+    a {
+      @extend .oswald-font;
+      text-transform: uppercase;
+      line-height: $navigation-height;
+      display: inline-block;
+      padding: 0 40px;
+      color: $off-black;
+      font-size: 24px;
+      &:hover {
+        color: $dark-grey;
+        text-decoration: none;
+      }
+      &.active {
+        @include box-shadow(rgba($off-black, 0.4) 0 4px 5px 1px inset);
+        color: $red;
+      }
+    }
+  }
+}
+
+.pushy {
+  h2 {
+    text-align: center;
+  }
+  nav {
+    padding: 0 $base-margin;
+    h3 {
+      font-size: 18px;
+      text-transform: none;
+    }
+    a {
+      padding-left: $half-margin;
+      padding-right: $half-margin;
+      &:hover {
+        text-decoration: none;
+        background-color: rgba(white, 0.1);
+      }
+    }
+  }
+}

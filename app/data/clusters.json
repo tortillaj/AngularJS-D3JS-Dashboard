@@ -15,19 +15,17 @@
     }
   ],
   "clusters": {
-    "max": 18,
-    "min": -15,
     "datas": [
       {
         "id": "cluster1",
         "key": "Cluster 1",
         "values": [
-          ["Budget", 12],
-          ["Economy", 14],
-          ["Culture", 10],
-          ["Constitution", 18],
+          ["Budget", 10],
+          ["Economy", 9],
+          ["Culture", 4],
+          ["Constitution", 8],
           ["Energy", 8],
-          ["Transportation", 11]
+          ["Transportation", 10]
         ]
       },
       {
@@ -35,23 +33,23 @@
         "key": "Cluster 2",
         "values": [
           ["Budget", 5],
-          ["Economy", 4],
-          ["Culture", -1],
-          ["Constitution", 3],
-          ["Energy", -4],
-          ["Transportation", -3]
+          ["Economy", 6],
+          ["Culture", 4],
+          ["Constitution", 7],
+          ["Energy", 6],
+          ["Transportation", 7]
         ]
       },
       {
         "id": "cluster3",
         "key": "Cluster 3",
         "values": [
-          ["Budget", -9],
-          ["Economy", -8],
-          ["Culture", -15],
-          ["Constitution", -14],
-          ["Energy", -1],
-          ["Transportation", -2]
+          ["Budget", 1],
+          ["Economy", 3],
+          ["Culture", 2],
+          ["Constitution", 4],
+          ["Energy", 2],
+          ["Transportation", 3]
         ]
       }
     ]

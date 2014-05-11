@@ -1,14 +1,14 @@
-<div class="col-md-12">
+<div class="col-md-12 page--clusters">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 chart__cluster--page">
             <div class="row">
-                <div class="col-md-6">
-                    <p>{{clusterData.total}}</p>
-                    <p>total users</p>
+                <div class="col-md-6 statistic">
+                    <h3 class="statistic__title">{{clusterData.total}}<br />
+                        <small class="statistic__title--small">total users</small></h3>
                 </div>
-                <div class="col-md-6">
-                    <p>{{clusters.length}}</p>
-                    <p>clusters</p>
+                <div class="col-md-6 statistic">
+                    <h3 class="statistic__title">{{clusters.length}}<br />
+                        <small class="statistic__title--small">clusters</small></h3>
                 </div>
             </div>
             <div class="row">
@@ -18,8 +18,8 @@
                             id="clusterOverviewPieChart"
                             width="320"
                             height="320"
-                            x="xFunction()"
-                            y="yFunction()"
+                            x="pieX()"
+                            y="pieY()"
                             tooltips="true"
                             color="colorPalette(overview)"
                             tooltipcontent="clusterToolTipContent()"
@@ -29,33 +29,37 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 clusters__cluster--page">
             <div class="row" ng-repeat="cluster in clusters">
                 <div class="col-md-12">
-                    <div class="panel panel-info">
+                    <div class="panel panel-default segment">
                         <div class="panel-heading">{{ cluster.key }}</div>
                         <div class="panel-body row">
-                            <div class="col-md-2">
-                                <p>{{ overview[$index].y }}</p>
-                                <p>users in {{ cluster.key }}</p>
+                            <div class="col-md-2 statistic">
+                                <h3 class="statistic__title">{{ overview[$index].y }}<br>
+                                    <small class="statistic__title--small">users</small></h3>
                             </div>
-                            <div class="col-md-2">
-                                <p>{{ overview[$index].y / clusterData.total * 100 | number:1 }}%</p>
-                                <p>of total users</p>
+                            <div class="col-md-2 statistic">
+                                <h3 class="statistic__title">{{ overview[$index].y / clusterData.total * 100 | number:1 }}%<br />
+                                    <small class="statistic__title--small">of total users</small></h3>
                             </div>
                             <div class="col-md-8">
                                 <nvd3-multi-bar-horizontal-chart
                                         data="[cluster]"
                                         id="{{ cluster.id }}"
-                                        showXAxis="true"
-                                        showYAxis="true"
+                                        y="yFunction()"
+                                        forcey="[-5,5]"
+                                        showxaxis="true"
+                                        showyaxis="false"
+                                        valueFormat="valueFormatFunction()"
+                                        showValues="true"
                                         width="420"
                                         height="220"
                                         interactive="true"
                                         tooltips="true"
                                         tooltipcontent="nodeToolTipContent()"
                                         color="colorPalette([cluster])"
-                                        margin="{top:0,bottom:50,left:110,right:0}">
+                                        margin="{top:0,bottom:50,left:160,right:0}">
                                     <svg></svg>
                                 </nvd3-multi-bar-horizontal-chart>
                             </div>

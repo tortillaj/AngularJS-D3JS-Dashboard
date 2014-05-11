@@ -1,12 +1,12 @@
-<div class="col-md-12">
-    <h2>Projects Overview <br>
-        <small>Your projects, at a glance.</small>
+<div class="col-md-12 segment--transparent">
+    <h2 class="segment__title">Projects Overview <br>
+        <small class="segment__title--small">Your projects, at a glance.</small>
     </h2>
     <tabset>
         <tab ng-repeat="data in questionData" heading="{{ data.name }}">
             <div class="row">
                 <section class="col-md-4 table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-data">
                         <thead>
                         <tr>
                             <th>Metric</th>
@@ -38,8 +38,10 @@
                     </table>
                 </section>
                 <section class="col-md-8">
-                    <button ng-click="changeTimeFrame('weekly')">Last Week</button>
-                    <button ng-click="changeTimeFrame('monthly')">Last Month</button>
+                    <div class="btn-group">
+                        <button class="btn btn-flat" ng-click="changeTimeFrame('weekly')">Last Week</button>
+                        <button class="btn btn-flat" ng-click="changeTimeFrame('monthly')">Last Month</button>
+                    </div>
                     <nvd3-multi-bar-chart
                             data="chartData[$index]"
                             id="{{ data.id }}"
@@ -54,7 +56,7 @@
                             height="500"
                             xAxisTickFormat="formatDateAsDayName()"
                             color="colorPalette(data.lastWeek.datas)"
-                            margin="{top:70,right:10,left:50,bottom:70}"
+                            margin="{top:40,right:10,left:50,bottom:70}"
                             yAxisTickFormat="questionYAxisFormat()">
                         <svg></svg>
                     </nvd3-multi-bar-chart>
@@ -66,17 +68,17 @@
 <div class="col-md-12">
     <div class="row">
         <section class="col-md-6">
-            <div class="well">
-                <h2>Clusters Summary <br>
-                    <small>Overview of user cluster data.</small>
+            <div class="segment">
+                <h2 class="segment__title">Clusters Summary <br>
+                    <small class="segment__title--small">Overview of user clusters.</small>
                 </h2>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-9 chart__graph--cluster-summary">
                         <nvd3-pie-chart
                                 data="clusters"
                                 id="clusterOverviewPieChart"
-                                width="325"
-                                height="325"
+                                width="370"
+                                height="370"
                                 x="xFunction()"
                                 y="yFunction()"
                                 tooltips="true"
@@ -86,20 +88,18 @@
                             <svg></svg>
                         </nvd3-pie-chart>
                     </div>
-                    <div class="col-md-4">
-                        <div ng-repeat="cluster in clusters">
-                            <h3>{{ cluster.key }}</h3>
-
-                            <p>{{ cluster.y / clusterData.total * 100 | number:1 }}%</p>
+                    <div class="col-md-3 chart__description--cluster-summary">
+                        <div ng-repeat="cluster in clusters" class="statistic">
+                            <h3 class="statistic__title">{{ cluster.key }}<br> <small class="statistic__title--small">{{ cluster.y / clusterData.total * 100 | number:1 }}%</small></h3>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="col-md-6">
-            <div class="well">
-                <h2>Nodes Summary <br>
-                    <small>Trending questions from each node.</small>
+            <div class="segment">
+                <h2 class="segment__title">Category Summary <br>
+                    <small class="segment__title--small">Category popularity.</small>
                 </h2>
                 <nvd3-discrete-bar-chart
                         data="trendingNodes.trending.datas"

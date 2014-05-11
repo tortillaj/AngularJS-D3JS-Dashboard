@@ -1,0 +1,10 @@
+.btn-flat {
+  @extend .oswald-font;
+  @include border-radius(0px);
+  background-color: $light-grey;
+  border: none;
+
+  &.active {
+    background-color: $dark-grey;
+  }
+}

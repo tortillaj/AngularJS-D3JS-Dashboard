@@ -17,7 +17,9 @@
     "modernizr": "~2.7.2",
     "jquery": "~2.1.0",
     "angular-cache": "~2.3.3",
-    "angular-easyfb": "~1.0.1"
+    "angular-easyfb": "~1.0.1",
+    "bootstrap-switch": "~3.0.0",
+    "webshim": "~1.12.7"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

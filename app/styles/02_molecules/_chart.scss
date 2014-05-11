@@ -1,0 +1,13 @@
+.chart__description--cluster-summary {
+  padding-top: $base-margin;
+  .statistic {
+    padding-bottom: $base-margin;
+    margin-bottom: $double-margin;
+    border-bottom: 1px solid $light-grey;
+    &:last-child, &:last-of-type {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}

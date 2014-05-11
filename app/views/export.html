@@ -1,1 +1,65 @@
-<p>This is the export view.</p>
+<div class="col-md-12 segment--transparent">
+    <form role="form" class="row form-horizontal">
+        <div class="col-md-4 col-md-offset-1 segment--transparent">
+            <h2 class="segment__title">Dates<br />
+                <small class="segment__title--small">Select the date range for your export</small></h2>
+            <div class="form-group">
+                <label for="startDate" class="col-md-3 control-label">Start</label>
+                <div class="col-md-9">
+                    <input type="date" id="startDate" ng-model="exportRequest.date.start" ng-click="selectOptions($event)" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="endDate" class="col-md-3 control-label">End</label>
+                <div class="col-md-9">
+                    <input type="date" id="endDate" ng-model="exportRequest.date.end" ng-click="selectOptions($event)" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-2 col-md-pull-1 segment--transparent">
+            <h2 class="segment__title">Data Sets<br />
+                <small class="segment__title--small">Pick your data set to include in your export</small></h2>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input type="checkbox" name="engagements" class="toggle-check" ng-click="selectOptions($event)" ng-model="exportRequest.dataSets.engagements">
+                </div>
+                <label for="engagements" class="col-md-8 control-label">Engagement Details</label>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input type="checkbox" id="nodes" name="nodes" class="toggle-check" ng-click="selectOptions($event)" ng-model="exportRequest.dataSets.nodes">
+                </div>
+                <label for="nodes" class="col-md-8 control-label">Top Line Summary of Nodes</label>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input type="checkbox" name="clusters" class="toggle-check" ng-click="selectOptions($event)" ng-model="exportRequest.dataSets.clusters">
+                </div>
+                <label for="clusters" class="col-md-8 control-label">Top Line Summary of Clusters</label>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input type="checkbox" name="profiles" class="toggle-check" ng-click="selectOptions($event)" ng-model="exportRequest.dataSets.profiles">
+                </div>
+                <label for="profiles" class="col-md-8 control-label">Individual Profile Data</label>
+            </div>
+        </div>
+        <div class="col-md-12 col-md-pull-2">
+            <button class="btn btn-success pull-right" ng-click="exportData()">Export</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    var switchOptions = { size: 'small', onColor: 'success', offColor: 'danger', onText: '<i class="glyphicon glyphicon-ok"></i>', offText: '<i class="glyphicon glyphicon-remove"></i>', state: false, disabled: false };
+    var toggles = jQuery(".toggle-check");
+    toggles.bootstrapSwitch(switchOptions);
+    toggles.on("switchChange.bootstrapSwitch", function (event, state) {
+        if (state === true) {
+            $(".toggle-check:not(input[name=" + event.target.name + "])").bootstrapSwitch('disabled', true, true);
+        } else {
+            toggles.bootstrapSwitch('disabled', false, true);
+        }
+        angular.element(this).triggerHandler('click', [this, event, state]);
+    });
+</script>

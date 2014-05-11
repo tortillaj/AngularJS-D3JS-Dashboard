@@ -31,6 +31,10 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['bowerInstall']
       },
+      views: {
+        files: ['<%= yeoman.app %>/views/*.html'],
+        tasks: 'html2js:server'
+      },
       coffee: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.{coffee,litcoffee,coffee.md}'],
         tasks: ['newer:coffee:dist']

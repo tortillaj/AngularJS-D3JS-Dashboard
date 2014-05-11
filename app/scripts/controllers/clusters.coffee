@@ -8,13 +8,22 @@ angular.module('votifiAngularApp')
       $scope.clusters = data.clusters.datas
 
 
-    $scope.xFunction = ->
+    $scope.pieX = ->
       (d) ->
         d.key
 
-    $scope.yFunction = ->
+    $scope.pieY = ->
       (d) ->
         d.y
+
+    $scope.yFunction = ->
+      (d) ->
+        d[1] - 5
+
+    $scope.valueFormatFunction = () ->
+      (d) ->
+        format = d3.format ',.2f'
+        format d + 5
 
     $scope.clusterToolTipContent = () ->
       (key, x, y, e, graph) ->

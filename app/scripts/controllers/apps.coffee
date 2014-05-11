@@ -34,8 +34,8 @@ angular.module('votifiAngularApp')
 
 angular.module('votifiAngularApp')
 .controller 'AppModalCtrl',
-    ['$scope', '$modalInstance', 'Facebook', 'DiscourseAnalytics', 'Poll', 'messages', 'apps', 'loginStatus', 'me',
-      ($scope, $modalInstance, Facebook, DiscourseAnalytics, Poll, messages, apps, loginStatus, me) ->
+    ['$scope', '$modalInstance', 'Facebook', 'Poll', 'messages', 'apps', 'loginStatus', 'me',
+      ($scope, $modalInstance, Facebook, Poll, messages, apps, loginStatus, me) ->
         $scope.messages = messages
         $scope.apps = apps.data
         $scope.new = {}
@@ -46,11 +46,6 @@ angular.module('votifiAngularApp')
         $scope.create = ->
           Facebook.createTab($scope.new, $scope.apps, loginStatus).then (response) ->
             if (response[0] is true)
-              #DiscourseAnalytics.createFacebookApp(
-              #  response[1]
-              #).then () ->
-              #  $scope.cancel()
-
               $scope.messages.push({ type: 'success', content: 'Your new app has been added!' })
               $scope.cancel()
 

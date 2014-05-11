@@ -2,12 +2,12 @@
 
     <div class="row" ng-repeat="r in rows">
         <div class="col-md-6" ng-repeat="node in r">
-            <article class="panel panel-default">
+            <article class="panel panel-default segment">
                 <header class="panel-heading">{{ node.key }}</header>
                 <section class="panel-body">
                     <nvd3-discrete-bar-chart
                             data="[node]"
-                            id="node-{{ node.key }}"
+                            id="node-{{ node.key | nospace }}"
                             showXAxis="false"
                             staggerLabels="true"
                             showYAxis="false"
