@@ -72,14 +72,14 @@ angular
     '$angularCacheFactory',
     ($rootScope, $document, $http, $angularCacheFactory) ->
 
-      $angularCacheFactory 'appCache',
-        maxAge: 1000 * 60 * 60 * 24
-        cacheFlushInterval: 1000 * 60 * 60 * 24
-        storageMode: 'localStorage'
-        verifyIntegrity: true
+      # setup the default cache settings
+      $angularCacheFactory 'defaultCache',
+        maxAge: 900000,
+        cacheFlushInterval: 6000000
         deleteOnExpire: 'aggressive'
+        storageMode: 'localStorage'
 
-      $http.defaults.cache = $angularCacheFactory.get 'cache'
+      $http.defaults.cache = $angularCacheFactory.get 'defaultCache'
 
       $rootScope.$on '$routeChangeSuccess', (event, current, previous) ->
         $rootScope.title = current.$$route.title
